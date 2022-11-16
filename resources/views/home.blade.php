@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!') }}<br>
+                    Your user group is:
+                        @if (isset($usergroup))
+                            {{$usergroup}}
+                        @else
+                            Unknown
+                        @endif
                 </div>
             </div>
         </div>
