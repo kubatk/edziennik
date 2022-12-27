@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('users', function($table) {
             $table->string('last_name');
             $table->string('address');
-            $table->integer('class');
+            $table->integer('class')->nullable();
             $table->char('group');
         });
     }
