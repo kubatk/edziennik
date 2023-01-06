@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $group = DB::table('user_data')->where('id', \auth()->user()->user)->value('group');
-        switch($group){
+        switch(\auth()->user()->group){
             case 'S':
                 return view('student.home')->with('usergroup', "Uczeń");
                 break;

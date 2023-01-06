@@ -59,4 +59,22 @@ class User extends Authenticatable
         $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('last_name');
         return $last_name;
     }
+
+    public function getAddressAttribute()
+    {
+        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('address');
+        return $last_name;
+    }
+
+    public function getClassAttribute()
+    {
+        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('class');
+        return $last_name;
+    }
+
+    public function getGroupAttribute()
+    {
+        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('group');
+        return $last_name;
+    }
 }
