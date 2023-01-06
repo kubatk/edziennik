@@ -24,7 +24,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Headmaster
-
+Route::get('/add-user', function (){return view('headmaster.add_user');})->name('add_user');
+Route::post('addUser', [App\Http\Controllers\HeadmasterController::class, 'addUser']);
 // Teacher
 
 // Student
