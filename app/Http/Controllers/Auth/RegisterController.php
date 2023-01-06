@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\AccountCode;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use mysql_xdevapi\Table;
+use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\returnArgument;
 
 class RegisterController extends Controller
 {
@@ -50,9 +54,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+//            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'code' => ['required', new AccountCode]
         ]);
     }
 
@@ -64,14 +69,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $code = $data['code'];
+        $find = DB::table('user_data')->where('account_code', $code)->first();
+        error_log("row: ".$find->last_name, 4);
         return User::create([
-            'name' => $data['name'],
-            'last_name' => "",
-            'address' => "",
+//            'name' => $data['name'],
+//            'last_name' => "",
+//            'address' => "",
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'group' => 'U',
-            'class' => NULL
+            'user' => $find->id,
+
+//            'group' => 'U',
+//            'class' => NULL
         ]);
     }
 }
