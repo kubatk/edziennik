@@ -22,7 +22,7 @@
     <nav>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            Zalogowano jako: (dyrektor) {{ Auth::user()->name }},
+            Zalogowano jako: (dyrektor) {{ Auth::user()->first_name }} {{ Auth::user()->last_name }},
 {{--            <a class="text-decoration-underline text-blue cursor-pointer" onclick="document.getElementById('logout-form').submit();">[Wyloguj]</a>--}}
             <button>[Wyloguj się]</button>
         </form>
