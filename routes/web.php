@@ -26,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Headmaster
 Route::get('/add-user', function (){return view('headmaster.add_user');})->name('add_user');
 Route::post('addUser', [App\Http\Controllers\HeadmasterController::class, 'addUser']);
+
+Route::get('/manage-users', function (){return view('headmaster.manage_users');})->name('manage_users');
 // Teacher
 
 // Student
