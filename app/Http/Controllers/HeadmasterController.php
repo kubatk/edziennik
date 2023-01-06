@@ -45,6 +45,16 @@ class HeadmasterController extends Controller
 
         DB::table('user_data')->insert($data);
 
+        return redirect()->route('manage_users');
+    }
+
+    public function addClass(Request $request){
+        $data = array(
+            'name' => $request->name,
+            'school_year' => $request->school_year,
+        );
+
+        DB::table('classes')->insert($data);
         return redirect()->route('home');
     }
 

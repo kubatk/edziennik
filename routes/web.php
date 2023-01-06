@@ -28,6 +28,9 @@ Route::get('/add-user', function (){return view('headmaster.add_user');})->name(
 Route::post('addUser', [App\Http\Controllers\HeadmasterController::class, 'addUser']);
 
 Route::get('/manage-users', function (){return view('headmaster.manage_users');})->name('manage_users');
+
+Route::get('/add-class', function (){return view('headmaster.add_class');})->name('add_class');
+Route::post('addClass', [App\Http\Controllers\HeadmasterController::class, 'addClass']);
 // Teacher
 
 // Student
