@@ -18,6 +18,15 @@ const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
+const stud = createApp({});
+
+import App from './components/Student/App_student.vue';
+stud.component('App_student', App);
+
+const teach = createApp({});
+
+import App_T from './components/Teacher/App_teacher.vue';
+teach.component('App_teacher', App_T);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -37,3 +46,5 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+stud.mount('#student_app');
+teach.mount('#teacher_app');
