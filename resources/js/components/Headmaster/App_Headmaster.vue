@@ -1,29 +1,17 @@
 <template>
-    <div v-on:click="parentValue='menu'" class="navbarT"><span style="color: #E38F10;line-height: 1;">E</span>DZIENNIK</div>
+    <div v-on:click="parentValue='menu'" class="navbarH"><span style="color: #E38F10;line-height: 1;">E</span>DZIENNIK</div>
     <div v-if="parentValue==='menu'">
         <HelloWorld v-bind:value="parentValue" v-on:update:value="changeParentValue"></HelloWorld>
-    </div>
-    <div v-else-if="parentValue==='oceny'">
-        <OcenyPage></OcenyPage>
-    </div>
-    <div v-else-if="parentValue==='sprawdziany'">
-        <SprawdzianyPage></SprawdzianyPage>
-    </div>
-    <div v-else-if="parentValue==='plan'">
-        <PlanZajecPage></PlanZajecPage>
     </div>
     <Footer></Footer>
 </template>
 
 <script>
-import HelloWorld from "../Teacher/HelloWorld.vue";
-import OcenyPage from "../Teacher/OcenyPage.vue";
-import SprawdzianyPage from "../Teacher/SprawdzianyPage.vue";
-import PlanZajecPage from "../Teacher/PlanZajecPage.vue";
+import HelloWorld from "../Headmaster/HelloWorld.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-    name: 'App_T',
+    name: 'App_H',
     data() {
         return {
             parentValue: 'menu',
@@ -31,9 +19,6 @@ export default {
     },
     components: {
         Footer,
-        PlanZajecPage,
-        SprawdzianyPage,
-        OcenyPage,
         HelloWorld
     },
     methods: {
@@ -45,7 +30,7 @@ export default {
 </script>
 
 <style>
-#teacher_app {
+#headmaster_app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -55,7 +40,7 @@ export default {
 
 }
 
-.navbarT
+.navbarH
 {
     position: absolute;
     width: 249px;
@@ -73,7 +58,7 @@ export default {
 
 }
 
-.navbarT:hover
+.navbarH:hover
 {
     cursor: pointer;
 }

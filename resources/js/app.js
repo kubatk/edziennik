@@ -27,6 +27,16 @@ const teach = createApp({});
 
 import App_T from './components/Teacher/App_teacher.vue';
 teach.component('App_teacher', App_T);
+
+const paren = createApp({});
+
+import App_P from './components/Parent/App_parent.vue';
+paren.component('App_parent', App_P);
+
+const master = createApp({});
+
+import App_H from './components/Headmaster/App_Headmaster.vue';
+master.component('App_headmaster', App_H)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -48,3 +58,5 @@ teach.component('App_teacher', App_T);
 app.mount('#app');
 stud.mount('#student_app');
 teach.mount('#teacher_app');
+paren.mount('#parent_app');
+master.mount('#headmaster_app');

@@ -3,10 +3,20 @@
         <div class="name"> OCENY </div>
         <div class="line"></div>
         <div class="window">
+            <div class="table">
+                <div class="Subject">
+                    PRZEDMIOT
+                </div>
+                <div class="Grades" style="background: #1B2647">
+                    OCENY
+                </div>
+            </div>
+
             <div v-for="(item, index) in items" :key="index">
-                <div class="Subject" v-bind:textContent="item.text"></div>
-                <div v-for="(item, index) in marks" :key="index">
-                    <div class="Mark" v-bind:textContent="item.text"></div>
+                <div class="Subject">{{ item.text }} :
+                </div>
+                <div class="Grades">
+                    <span v-for="grade in item.grades" :key="grade">{{ grade }}, </span>
                 </div>
             </div>
         </div>
@@ -19,13 +29,9 @@ export default {
     data() {
         return {
             items: [
-                { text: 'FIZYKA' },
-                { text: 'INFORMATYKA' },
-                { text: 'MATEMATYKA' },
-            ],
-            marks: [
-                { text: '5.0' },
-                { text: '4.5' },
+                { text: 'FIZYKA', grades: [5, 3, 5, 3, 3] },
+                { text: 'INFORMATYKA', grades: [2, 4, 3, 4, 5] },
+                { text: 'MATEMATYKA', grades: [3, 5, 5, 4, 4] },
             ],
         };
     },
@@ -36,9 +42,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .contener{
     background: url("../assets/nav_back.jpg");
-    background-size: 100%;
     background-repeat: no-repeat;
-    min-height: 95vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
     padding-bottom: 40px;
 }
 .name{
@@ -64,11 +72,30 @@ export default {
     border-radius: 21px;
     background: #D9D9D9;
     padding: 30px 0 50px 0;
+    min-height: 500px;
+}
+.table{
 }
 .Subject
 {
-    margin: 30px;
-    background: #A65353;
+    display: inline-block;
+    margin: 5px 10px 5px 20px;
+    background: #1B2647;
+    padding: 5px 5px 5px 30px;
+    font-family: 'Inter',serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-align: left;
+    width: 15vw;
+}
+.Grades{
+    display: inline-block;
+    width: 75vw;
+    margin: 5px 20px 5px 10px;
+    background: #69707b;
     padding: 5px 5px 5px 30px;
     font-family: 'Inter',serif;
     font-style: normal;
@@ -78,19 +105,6 @@ export default {
     color: #FFFFFF;
     text-align: left;
 }
-.Mark
-{
-    background: #AE8383;
-    margin: 30px;
-    height: 40px;
 
-    padding: 5px 5px 5px 30px;
-    font-family: 'Inter',serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    color: #FFFFFF;
-    text-align: left;
-}
+
 </style>
