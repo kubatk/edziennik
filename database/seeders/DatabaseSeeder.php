@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'address' => ['Podkarpacka 13', 'Kopernika 29', 'Słoneczna 14/8', 'Słoneczna 14/8'],
             'class' => [NULL, NULL, 1, NULL],
             'group' => ['H', 'T', 'S', 'P'],
-            'account_code' => ['demo1', 'demo2', 'demo3', 'demo4'],
+            'account_code' => ['vcq6C4', 'G2vcre', 'Cdwo3j', 'Pclp7d'],
             'email' => ['marian@szkola.pl','kasia@szkola.pl','tomek@szkola.pl','ela@szkola.pl'],
             'password' => Hash::make('demo'),
         ];

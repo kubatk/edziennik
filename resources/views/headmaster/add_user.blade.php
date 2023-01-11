@@ -14,7 +14,14 @@
     Nazwisko: <input type="text" name="last_name"/><br>
     Adres: <input type="text" name="address"/><br>
     <br>
-    Klasa: <input type="text" name="class"><br>
+    <?php
+        $classes = DB::table('classes')->get()
+    ?>
+    Klasa: <select name="class">
+        @foreach($classes as $class)
+            <option value="{{ $class->id }}">{{ $class->name }}</option>
+        @endforeach
+    </select>
     <input type="submit" value="Dodaj">
 </form>
 @endsection

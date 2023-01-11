@@ -3,7 +3,8 @@
 @section('content')
 <?php
     $teachers = DB::table('user_data')->where('group', 'T')->get();
-    $students = DB::table('user_data')->where('group', 'S')->get();
+//    $students = DB::table('user_data')->where('group', 'S')->get();
+    $students = DB::table('user_data')->join('classes', 'classes.id', '=', 'user_data.class')->where('group', 'S')->get();
 ?>
 <h3>
     Panel zarządzania nauczycielami i uczniami
@@ -40,6 +41,7 @@
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Adres</th>
+            <th>Klasa</th>
             <th>Kod logowania</th>
             <th>Opcje</th>
         </tr>
@@ -48,6 +50,7 @@
                 <td>{{ $student->first_name }}</td>
                 <td>{{ $student->last_name }}</td>
                 <td>{{ $student->address }}</td>
+                <td>{{ $student->name }}</td>
                 <td>{{ $student->account_code }}</td>
                 <td>
                     <a href="#">Edytuj</a>
