@@ -12,13 +12,13 @@
         </div>
 
         <div class="columns">
-            <button v-on:click="changeValue(value1)" class="column"><img src="../assets/trophy.svg"><br>OCENY</button>
+            <button v-on:click="changeValue(value1)" class="column"><img src="../assets/trophy.svg"><br>OCENY DZIECKA</button>
             <button v-on:click="changeValue(value2)" class="column"><img src="../assets/journal-bookmark-fill.svg"><br>SPRAWDZIANY</button>
-            <button v-on:click="changeValue(value3)" class="column"><img src="../assets/calendar2-week.svg"><br>PLAN ZAJĘĆ</button>
+            <button v-on:click="changeValue(value3)" class="column"><img src="../assets/calendar2-week.svg"><br>PLAN ZAJĘĆ DZIECKA</button>
         </div>
         <div class="columns">
             <button v-on:click="changeValue(value4)" class="column"><img src="../assets/envelope-at.svg"><br>KOMUNIKATOR</button>
-            <button v-on:click="changeValue(value5)" class="column"><img src="../assets/folder.svg"><br>UDOSTĘPNIONE PLIKI</button>
+            <button v-on:click="changeValue(value5)" class="column"><img src="../assets/clipboard2-check.svg"><br>USPRAWIEDLIWIENIA</button>
         </div>
     </div>
 </template>
@@ -32,7 +32,7 @@ export default {
             value2: 'sprawdziany',
             value3: 'plan',
             value4: 'komunikator',
-            value5: 'udostepnione',
+            value5: 'usprawiedliwienia',
         }
     },
     methods: {

@@ -1,6 +1,6 @@
 <template>
     <div class="contener">
-        <div class="name"> PLAN ZAJĘĆ </div>
+        <div class="name"> USPRAWIEDLIWIENIA </div>
         <div class="line"></div>
         <div class="window">
 
@@ -10,15 +10,10 @@
 
 <script>
 export default {
-    name: "PlanZajecPage",
-    computed: {
-        currentMonth() {
-            return getMonthName(this.currentDate.getMonth())
-        },
-    }
+    name: 'UsprawiedliwieniaPage'
+
 }
 </script>
-
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .contener{
@@ -54,6 +49,5 @@ export default {
     background: #D9D9D9;
     height: 500px;
 }
-
 
 </style>

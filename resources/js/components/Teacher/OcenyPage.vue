@@ -19,13 +19,10 @@ export default {
     data() {
         return {
             items: [
-                { text: 'FIZYKA' },
-                { text: 'INFORMATYKA' },
-                { text: 'MATEMATYKA' },
+
             ],
             marks: [
-                { text: '5.0' },
-                { text: '4.5' },
+
             ],
         };
     },
@@ -36,9 +33,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .contener{
     background: url("../assets/nav_back.jpg");
-    background-size: 100%;
     background-repeat: no-repeat;
-    min-height: 95vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
     padding-bottom: 40px;
 }
 .name{
