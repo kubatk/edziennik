@@ -31,6 +31,17 @@ Route::get('/manage-users', function (){return view('headmaster.manage_users');}
 
 Route::get('/add-class', function (){return view('headmaster.add_class');})->name('add_class');
 Route::post('addClass', [App\Http\Controllers\HeadmasterController::class, 'addClass']);
+
+Route::get('/manage-classes', function (){return view('headmaster.manage_classes');})->name('manage_classes');
+
+Route::get('/class/{class}', [App\Http\Controllers\HeadmasterController::class, 'viewTimetable'])->name('headmaster_timetable');
+
+Route::get('/add-lesson', function (){return view('headmaster.add_lesson');})->name('add_lesson');
+Route::post('addLesson', [App\Http\Controllers\HeadmasterController::class, 'addLesson']);
+
+Route::get('/add-to-timetable/{class}/{lesson}', [App\Http\Controllers\HeadmasterController::class, 'addToTimetableForm'])->name('add_to_timetable');
+Route::post('addTimetable', [App\Http\Controllers\HeadmasterController::class, 'addToTimetable']);
+
 // Teacher
 
 // Student

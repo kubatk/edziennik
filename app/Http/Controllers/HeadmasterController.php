@@ -58,4 +58,44 @@ class HeadmasterController extends Controller
         return redirect()->route('home');
     }
 
+    public function viewTimetable($classId){
+        $class = DB::table('classes')->where('id', $classId)->first();
+        if($class)
+            return view('headmaster.timetable')->with('class', $class);
+        else
+            return redirect()->route('home');
+    }
+
+    public function addLesson(Request $request){
+        $data = [
+            'name' => $request->input('name'),
+            'school_year' => $request->input('school_year'),
+            'lecturer' => $request->input('teacher'),
+            'class' => $request->input('class'),
+        ];
+
+        DB::table('lessons')->insert($data);
+        return redirect()->route('headmaster_timetable', $request->class);
+    }
+
+    public function addToTimetableForm($class, $lesson){
+        $class = DB::table('classes')->where('id', $class)->first();
+        $lesson = DB::table('lessons')->where('id', $lesson)->first();
+        return view('headmaster.add_lesson_to_timetable')->with('class', $class)->with('lesson', $lesson);
+    }
+
+    public function addToTimetable(Request $request){
+        $class = DB::table('classes')->where('id', $request->input('class'))->first();
+        $lesson = DB::table('lessons')->where('id', $request->input('lesson'))->first();
+        $data = [
+            'lesson'=>$request->input('lesson'),
+            'day'=>$request->input('day'),
+            'start'=>$request->input('start_hour'),
+            'duration'=>$request->input('duration'),
+        ];
+
+        DB::table('timetable')->insert($data);
+        return redirect()->route('headmaster_timetable', $request->class);
+    }
+
 }
