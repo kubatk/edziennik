@@ -78,11 +78,6 @@ class HeadmasterController extends Controller
         return redirect()->route('headmaster_timetable', $request->class);
     }
 
-    public function addToTimetableForm($class, $lesson){
-        $class = DB::table('classes')->where('id', $class)->first();
-        $lesson = DB::table('lessons')->where('id', $lesson)->first();
-        return view('headmaster.add_lesson_to_timetable')->with('class', $class)->with('lesson', $lesson);
-    }
 
     public function addToTimetable(Request $request){
         $class = DB::table('classes')->where('id', $request->input('class'))->first();
@@ -91,11 +86,24 @@ class HeadmasterController extends Controller
             'lesson'=>$request->input('lesson'),
             'day'=>$request->input('day'),
             'start'=>$request->input('start_hour'),
-            'duration'=>$request->input('duration'),
+            'duration'=>45,
         ];
 
         DB::table('timetable')->insert($data);
-        return redirect()->route('headmaster_timetable', $request->class);
+        return redirect()->route('headmaster_timetable', $request->input('class'));
+    }
+
+    public function removeFromTimetable(Request $request){
+
+        $count = DB::table('timetable')->where('id', $request->input('id'))->count();
+        error_log($count, 4);
+
+        if($count>0){
+            DB::table('timetable')->where('id', $request->input('id'))->delete();
+            error_log('usuwam', 4);
+        }
+
+        return redirect()->route('headmaster_timetable', $request->input('class'));
     }
 
 }
