@@ -96,11 +96,9 @@ class HeadmasterController extends Controller
     public function removeFromTimetable(Request $request){
 
         $count = DB::table('timetable')->where('id', $request->input('id'))->count();
-        error_log($count, 4);
 
         if($count>0){
             DB::table('timetable')->where('id', $request->input('id'))->delete();
-            error_log('usuwam', 4);
         }
 
         return redirect()->route('headmaster_timetable', $request->input('class'));
