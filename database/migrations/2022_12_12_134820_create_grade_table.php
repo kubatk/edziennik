@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('grade', function (Blueprint $table) {
             $table->id();
             $table->integer('student');
-            $table->integer('lesson');
-            $table->dateTime('date');
+            $table->integer('category');
             $table->integer('mark');
-            $table->boolean('count_to_avg');
             $table->timestamps();
         });
     }
