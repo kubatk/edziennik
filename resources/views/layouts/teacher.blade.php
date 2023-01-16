@@ -28,6 +28,7 @@
             <button style="font-weight: 600; border: none; border-radius: 20px;background-color: #1B2647;color: white; padding: 10px 30px "> Wyloguj się </button>
         </form>
     </nav>
+    @yield('content')
     <div id="teacher_app">
         <App_teacher></App_teacher>
     </div>

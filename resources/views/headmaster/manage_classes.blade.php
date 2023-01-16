@@ -3,7 +3,7 @@
 @section('content')
 <?php
 //    $classes = DB::table('classes')->select(DB::raw("SELECT classes.name, classes.id, COUNT(user_data.id) as count"))->join('user_data', 'classes.id', '=', 'user_data.class')->groupBy('classes.id');
-    $classes = DB::select(DB::raw('SELECT classes.name, classes.id, COUNT(user_data.id) as count FROM classes JOIN user_data ON classes.id = user_data.class GROUP BY classes.id, classes.name'));
+    $classes = DB::select(DB::raw('SELECT classes.name, classes.id, COUNT(user_data.id) as count FROM classes LEFT JOIN user_data ON classes.id = user_data.class GROUP BY classes.id, classes.name'));
 ?>
 <h3>
     Zarządzanie oddziałami

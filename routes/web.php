@@ -43,6 +43,10 @@ Route::post('addTimetable', [App\Http\Controllers\HeadmasterController::class, '
 Route::post('removeTimetable', [App\Http\Controllers\HeadmasterController::class, 'removeFromTimetable']);
 
 // Teacher
+Route::get('/marks', [\App\Http\Controllers\TeacherController::class, 'show_marks'])->name('teacher_marks');
+Route::get('/marks/{class}', [\App\Http\Controllers\TeacherController::class, 'show_marks'])->name('teacher_marks_with_class');
+Route::post('addMarkCategory', [App\Http\Controllers\TeacherController::class, 'addMarkCategory']);
+Route::post('saveMarks', [App\Http\Controllers\TeacherController::class, 'saveMarks']);
 
 // Student
 
