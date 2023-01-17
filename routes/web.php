@@ -22,6 +22,7 @@ Route::get('main', function (){return view('main');})->name('main');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/timetable', [App\Http\Controllers\HomeController::class, 'timetable'])->name('timetable');
 
 // Headmaster
 Route::get('/add-user', function (){return view('headmaster.add_user');})->name('add_user');
@@ -43,6 +44,10 @@ Route::post('addTimetable', [App\Http\Controllers\HeadmasterController::class, '
 Route::post('removeTimetable', [App\Http\Controllers\HeadmasterController::class, 'removeFromTimetable']);
 
 // Teacher
+
+Route::get('/attendance', [\App\Http\Controllers\TeacherController::class, 'show_attendance'])->name('teacher_attendance');
+Route::get('/attendance/{class}/{day}', [\App\Http\Controllers\TeacherController::class, 'show_attendance'])->name('teacher_attendance_with_day');
+Route::post('saveAttendance', [App\Http\Controllers\TeacherController::class, 'saveAttendance'])->name('saveAttendance');
 
 // Student
 

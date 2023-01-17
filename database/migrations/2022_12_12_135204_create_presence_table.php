@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('presence', function (Blueprint $table) {
             $table->id();
             $table->integer('student');
-            $table->integer('lesson');
+            $table->integer('timetable');
             $table->date('date');
             $table->integer('status');
             $table->timestamps();
