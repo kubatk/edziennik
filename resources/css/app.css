@@ -1,0 +1,84 @@
+/*============Navbar======================*/
+.navbarH
+{
+    position: absolute;
+    width: 249px;
+    height: 41px;
+    left: 35px;
+    top: 25px;
+
+    font-family: 'Arial',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 55px;
+    color: #2c3e50;
+
+
+}
+
+.navbarH:hover
+{
+    cursor: pointer;
+}
+/*=========================Main=========================*/
+
+.contener{
+    background: url("../js/components/assets/nav_back.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    padding-bottom: 40px;
+}
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 100px 0 100px;
+}
+
+.column {
+    width: 400px;
+    background: #D9D9D9;
+    border-radius: 21px;
+    margin: 20px;
+    height: 250px;
+    font-family: 'Arial',serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 58px;
+    color: #1B2647;
+    border: none;
+}
+.column:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.name{
+    font-family: 'Arial',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 131px;
+    text-align: left;
+    margin-left: 40px;
+
+    color: #D9D9D9;
+}
+.line{
+    border: 2px solid #E38F10;
+    background-color: #E38F10;
+    margin: 0 0 50px 50px;
+    width: 150px;
+}
+.window
+{
+    margin: 30px;
+    border-radius: 21px;
+    background: #D9D9D9;
+    min-height: 500px;
+    padding: 30px;
+}
