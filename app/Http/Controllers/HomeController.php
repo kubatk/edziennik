@@ -41,4 +41,19 @@ class HomeController extends Controller
 
         return view('home')->with('usergroup');
     }
+
+    public function timetable()
+    {
+
+        switch (\auth()->user()->group) {
+            case 'S':
+                return view('student.timetable');
+                break;
+            case 'T':
+                return view('teacher.timetable');
+                break;
+        }
+        return view('home');
+
+    }
 }

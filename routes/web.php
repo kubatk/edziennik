@@ -22,6 +22,7 @@ Route::get('main', function (){return view('main');})->name('main');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/timetable', [App\Http\Controllers\HomeController::class, 'timetable'])->name('timetable');
 
 // Headmaster
 Route::get('/add-user', function (){return view('headmaster.add_user');})->name('add_user');
@@ -47,6 +48,10 @@ Route::get('/marks', [\App\Http\Controllers\TeacherController::class, 'show_mark
 Route::get('/marks/{class}', [\App\Http\Controllers\TeacherController::class, 'show_marks'])->name('teacher_marks_with_class');
 Route::post('addMarkCategory', [App\Http\Controllers\TeacherController::class, 'addMarkCategory']);
 Route::post('saveMarks', [App\Http\Controllers\TeacherController::class, 'saveMarks']);
+
+Route::get('/attendance', [\App\Http\Controllers\TeacherController::class, 'show_attendance'])->name('teacher_attendance');
+Route::get('/attendance/{class}/{day}', [\App\Http\Controllers\TeacherController::class, 'show_attendance'])->name('teacher_attendance_with_day');
+Route::post('saveAttendance', [App\Http\Controllers\TeacherController::class, 'saveAttendance'])->name('saveAttendance');
 
 // Student
 
