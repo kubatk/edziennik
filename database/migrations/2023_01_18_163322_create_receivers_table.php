@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('receivers', function (Blueprint $table) {
             $table->id();
-            $table->integer('sender');
-            $table->longText('title');
-            $table->longText('content');
-            $table->timestamps();
+            $table->integer('message');
+            $table->integer('user');
+            $table->boolean('read')->default(false);
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('receivers');
     }
 };

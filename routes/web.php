@@ -22,7 +22,13 @@ Route::get('main', function (){return view('main');})->name('main');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/timetable', [App\Http\Controllers\HomeController::class, 'timetable'])->name('timetable');
+
+Route::get('/messages', [App\Http\Controllers\HomeController::class, 'messages'])->name('messages');
+Route::get('/messages/read/{id}', [App\Http\Controllers\HomeController::class, 'read_message'])->name('read_message');
+Route::get('/new-message', [App\Http\Controllers\HomeController::class, 'new_message'])->name('new_message');
+Route::post('addNewMessage', [App\Http\Controllers\HomeController::class, 'addNewMessage'])->name('addNewMessage');
 
 // Headmaster
 Route::get('/add-user', function (){return view('headmaster.add_user');})->name('add_user');
