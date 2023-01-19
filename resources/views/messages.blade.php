@@ -39,6 +39,11 @@ Odebrane wiadomości:
             ->orderBy('created_at', 'DESC')
             ->get()
     ?>
+    @if(count($messages)==0)
+        <tr>
+            <td colspan="3">Nie masz żadnych wiadomości w skrzynce.</td>
+        </tr>
+    @endif
     @foreach($messages as $message)
         <tr class="@if(isset($read_message) && $message->id == $read_message->id) opened-message @endif @if(!$message->read) unread-message @endif"
             onclick="read_message({{$message->id}})">
@@ -58,9 +63,10 @@ Odebrane wiadomości:
         <button onclick="window.location.replace('{{route('new_message', ['reply'=>$read_message->id])}}')">Odpowiedz</button>
         <button>Usuń</button>
         <p><b>Nadawca:</b> {{$read_message->first_name}} {{$read_message->last_name}}</p>
+        <p><b>Temat:</b> {{$read_message->title}}</p>
         <p>
             <b>Treść:</b><br>
-            {{$read_message->content}}
+            <pre>{{$read_message->content}}</pre>
         </p>
 
     @endif
