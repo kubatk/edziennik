@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HeadmasterController extends Controller
 {
@@ -102,6 +103,21 @@ class HeadmasterController extends Controller
         }
 
         return redirect()->route('headmaster_timetable', $request->input('class'));
+    }
+
+    public function addNews(Request $request){
+        $data = [
+            'added_by'=>\auth()->user()->id,
+            'content'=>$request->input('content'),
+            'created_at'=>Carbon::now(),
+        ];
+        DB::table('news')->insert($data);
+        return redirect()->route('news');
+    }
+
+    public function removeNews(Request $request){
+        DB::table('news')->where('id', $request->input('id'))->delete();
+        return redirect()->route('news');
     }
 
 }

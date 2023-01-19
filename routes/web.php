@@ -49,6 +49,10 @@ Route::post('addLesson', [App\Http\Controllers\HeadmasterController::class, 'add
 Route::post('addTimetable', [App\Http\Controllers\HeadmasterController::class, 'addToTimetable']);
 Route::post('removeTimetable', [App\Http\Controllers\HeadmasterController::class, 'removeFromTimetable']);
 
+Route::get('/news', function (){return view('headmaster.news');})->name('news');
+Route::post('addNews', [App\Http\Controllers\HeadmasterController::class, 'addNews']);
+Route::post('removeNews', [App\Http\Controllers\HeadmasterController::class, 'removeNews']);
+
 // Teacher
 Route::get('/marks', [\App\Http\Controllers\TeacherController::class, 'show_marks'])->name('teacher_marks');
 Route::get('/marks/{class}', [\App\Http\Controllers\TeacherController::class, 'show_marks'])->name('teacher_marks_with_class');
