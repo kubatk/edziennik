@@ -8,9 +8,9 @@
             <form class="organizaton" method="post" action="{{ url('addUser') }}" >
                 @csrf
                 <div class="descriptionr">
-                    <label hidden="hidden"><input  class="check" type="radio" name="group" value="S">Uczeń</label>
+                    <label ><input  class="check" type="radio" name="group" value="S">Uczeń</label>
                     <label hidden="hidden"><input class="check" type="radio" name="group" value="P">Rodzic</label>
-                    <label hidden="hidden"><input class="check" type="radio" name="group" value="T">Nauczyciel</label>
+                    <label ><input class="check" type="radio" name="group" value="T">Nauczyciel</label>
                     <label hidden="hidden"><input class="check" type="radio" name="group" value="H">Dyrektor</label><br>
 
                 </div>
