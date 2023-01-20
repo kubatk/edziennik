@@ -19,6 +19,7 @@
         <th>Data</th>
         <th>Klasa</th>
         <th>Opis</th>
+        <th>Akcje</th>
     </tr>
     @foreach($tests as $t)
 
@@ -27,6 +28,7 @@
             ({{$days[ date('N', strtotime($t->date))-1 ]}}):</td>
             <td><b>{{$t->class}} {{$t->lesson}}</b></td>
             <td>{{$t->description}}</td>
+            <td><button>Usuń</button></td>
         </tr>
     @endforeach
 </table>
