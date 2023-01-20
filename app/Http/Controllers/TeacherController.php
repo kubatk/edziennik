@@ -139,4 +139,15 @@ class TeacherController extends Controller
         }
         return redirect()->route('teacher_attendance_with_day', ['day'=>$request->input('day'), 'class'=>$request->input('class')]);
     }
+
+    public function addTest(Request $request){
+        $data = [
+            'lesson'=>$request->input('lesson'),
+            'description'=>$request->input('desc'),
+            'date'=>$request->input('date'),
+            'created_at'=>Carbon::now(),
+        ];
+        DB::table('tests')->insert($data);
+        return redirect()->route('teacher_tests');
+    }
 }
