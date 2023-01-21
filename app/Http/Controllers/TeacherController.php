@@ -32,7 +32,7 @@ class TeacherController extends Controller
             if($valid==1)
                 return view('teacher.marks')->with('lesson_id', $lesson);
         }
-        return view('home');
+        return redirect()->route('home');
     }
 
     public function addMarkCategory(Request $request){
@@ -102,7 +102,7 @@ class TeacherController extends Controller
             if($valid)
                 return view('teacher.attendance')->with(['class_id'=>$class, 'day'=>$day]);
         }
-        return view('home');
+        return redirect()->route('home');
     }
 
     public function saveAttendance(Request $request){
@@ -138,5 +138,16 @@ class TeacherController extends Controller
             }
         }
         return redirect()->route('teacher_attendance_with_day', ['day'=>$request->input('day'), 'class'=>$request->input('class')]);
+    }
+
+    public function addTest(Request $request){
+        $data = [
+            'lesson'=>$request->input('lesson'),
+            'description'=>$request->input('desc'),
+            'date'=>$request->input('date'),
+            'created_at'=>Carbon::now(),
+        ];
+        DB::table('tests')->insert($data);
+        return redirect()->route('teacher_tests');
     }
 }

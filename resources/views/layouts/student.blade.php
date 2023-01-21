@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+@if(auth()->user()->group != 'S')
+    <script>window.location.replace('{{route('home')}}')</script>
+@endif
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,7 +18,7 @@
 
     <!-- Scripts -->
     @viteReactRefresh
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css', 'resources/css/mark_tooltip.css', 'resources/css/student.css'])
     <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 <body>
@@ -29,6 +32,7 @@
         <button style="margin-bottom:20px; font-weight: 600; border: none; border-radius: 20px;background-color: #1B2647;color: white; padding: 10px 30px "> Wyloguj się </button>
     </form>
 </nav>
+
 <div class="Mini_menu" >
     <a href=""><button  class="menu_button" title="Oceny"> <img height="20px" src="{{ asset('assets/trophy.svg') }}" alt="Ikona ocen"></button></a>
     <a href=""><button class="menu_button" title="Sprawdziany" ><img  height="20px" src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona sprawdzianu"></button></a>
@@ -42,6 +46,7 @@
 {{--</div>--}}
 <div id="headmaster_app">
     <App_headmaster></App_headmaster>
+
 </div>
 </body>
 </html>

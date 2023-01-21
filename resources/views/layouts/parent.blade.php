@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+@if(auth()->user()->group != 'P')
+    <script>window.location.replace('{{route('home')}}')</script>
+@endif
 <html>
 <head>
     <meta charset="utf-8">
