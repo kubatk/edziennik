@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+@if(auth()->user()->group != 'S')
+    <script>window.location.replace('{{route('home')}}')</script>
+@endif
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,7 +18,7 @@
 
     <!-- Scripts -->
     @viteReactRefresh
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/mark_tooltip.css', 'resources/css/student.css'])
     <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 <body>
@@ -28,6 +31,7 @@
         <button style="font-weight: 600; border: none; border-radius: 20px;background-color: #1B2647;color: white; padding: 10px 30px ">Wyloguj się</button>
     </form>
 </nav>
+@yield('content')
 <div id="student_app">
     <App_student></App_student>
 </div>

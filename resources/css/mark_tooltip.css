@@ -1,0 +1,40 @@
+
+.mark-tooltip {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+    background-color: deepskyblue;
+    padding: 3px;
+    margin: 2px;
+    text-align: center;
+    width: 25px;
+}
+
+.mark-tooltip .mark-tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: lightgray;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 4px;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: -310%;
+    margin-left: -60px;
+}
+
+.mark-tooltip .mark-tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent lightgray transparent;
+}
+
+.mark-tooltip:hover .mark-tooltiptext {
+    visibility: visible;
+}

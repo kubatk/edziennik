@@ -32,7 +32,7 @@ class TeacherController extends Controller
             if($valid==1)
                 return view('teacher.marks')->with('lesson_id', $lesson);
         }
-        return view('home');
+        return redirect()->route('home');
     }
 
     public function addMarkCategory(Request $request){
@@ -102,7 +102,7 @@ class TeacherController extends Controller
             if($valid)
                 return view('teacher.attendance')->with(['class_id'=>$class, 'day'=>$day]);
         }
-        return view('home');
+        return redirect()->route('home');
     }
 
     public function saveAttendance(Request $request){
