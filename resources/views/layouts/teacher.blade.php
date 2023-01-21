@@ -32,6 +32,14 @@
             <button style="margin-bottom:20px; font-weight: 600; border: none; border-radius: 20px;background-color: #1B2647;color: white; padding: 10px 30px "> Wyloguj się </button>
         </form>
     </nav>
+<div class="Mini_menu" >
+    <a href="{{ route('teacher_attendance') }}"><button  class="menu_button" title="Obecność"> <img height="20px" src="{{ asset('assets/clipboard2-check.svg') }}" alt="Ikona obetności"></button></a>
+    <a href=""><button class="menu_button" title="Dodaj Sprawdzian" ><img  height="20px" src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona dodania sprawdzianu"></button></a>
+    <a href="{{ route('teacher_marks') }}"><button class="menu_button" title="Oceny" ><img  height="20px" src="{{ asset('assets/trophy.svg') }}" alt="Ikona ocen"></button></a>
+    <a href="{{ route('timetable') }}"><button class="menu_button" title="Plan zajęć" ><img  height="20px" src="{{ asset('assets/calendar2-week.svg') }}" alt="Ikona planu zjęć"></button></a>
+    <a href="{{ route('messages') }}"><button class="menu_button" title="Komunikator"><img height="20px" src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora"></button></a>
+
+</div>
     @yield('content')
 {{--    <div id="teacher_app">--}}
 {{--        <App_teacher></App_teacher>--}}

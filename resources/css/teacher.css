@@ -104,7 +104,8 @@ table .table3 {
     border: none;
 }
 .image-button:hover {
-    background: #6b7280;
+    transform: scale(1.1);
+    background-color: #6b7280;
 }
 
 .image-button img {
