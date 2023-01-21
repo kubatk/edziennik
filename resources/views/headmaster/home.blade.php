@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="contener">
+        <br>
         <div class="columns">
             <a href="{{ route('manage_classes') }}">
                 <button class="column">
@@ -15,10 +16,17 @@
                     <br>PANEL ZARZĄDZANIA UŻYTKOWNIKAMI
                 </button>
             </a>
-            <a href="{{ route('add_class') }}">
+            <a href="{{ route('messages') }}">
                 <button class="column">
-                    <img src="{{ asset('assets/ui-checks-grid.svg') }}" alt="Ikona dodania klasy">
-                    <br>DODAJ KLASĘ
+                    <img src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora">
+                    <br>KOMUNIKATOR
+                </button>
+            </a>
+            <a href="{{ route('news') }}">
+                <button class="column">
+                    <img src="{{ asset('assets/chat-right-text.svg') }}" alt="Ikona ogłoszeń">
+                    <br>DODAJ OGŁOSZENIE
+                    <i class="fa-solid fa-puzzle"></i>
                 </button>
             </a>
         </div>
@@ -36,7 +44,15 @@
                     <br>DODAJ UŻYTKOWNIKA
                 </button>
             </a>
+            <a href="{{ route('add_class') }}">
+                <button class="column">
+                    <img src="{{ asset('assets/ui-checks-grid.svg') }}" alt="Ikona dodania klasy">
+                    <br>DODAJ KLASĘ
+                </button>
+            </a>
+
         </div>
+
 
     </div>
 @endsection

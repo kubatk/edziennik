@@ -15,10 +15,7 @@
             <button v-on:click="changeValue(value1)" class="column"><img src="../assets/trophy.svg"><br>OCENY</button>
             <button v-on:click="changeValue(value2)" class="column"><img src="../assets/journal-bookmark-fill.svg"><br>SPRAWDZIANY</button>
             <button v-on:click="changeValue(value3)" class="column"><img src="../assets/calendar2-week.svg"><br>PLAN ZAJĘĆ</button>
-        </div>
-        <div class="columns">
             <button v-on:click="changeValue(value4)" class="column"><img src="../assets/envelope-at.svg"><br>KOMUNIKATOR</button>
-            <button v-on:click="changeValue(value5)" class="column"><img src="../assets/folder.svg"><br>UDOSTĘPNIONE PLIKI</button>
         </div>
     </div>
 </template>
