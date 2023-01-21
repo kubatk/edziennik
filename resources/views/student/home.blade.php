@@ -23,7 +23,34 @@
         </div>
 
         <div class="contener">
+
             <div class="columns">
+                <a href="{{ route('student_marks') }}">
+                    <button class="column">
+                        <img src="{{ asset('assets/trophy.svg') }}" alt="Ikona ocen">
+                        <br>OCENY
+                    </button>
+                </a>
+                <a href="{{ route('student_tests') }}">
+                    <button class="column">
+                        <img src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona sprawdzianów">
+                        <br>SPRAWDZIANY
+                    </button>
+                </a>
+                <a href="{{ route('student_attendance') }}">
+                    <button class="column">
+                        <img src="{{ asset('assets/clipboard2-check.svg') }}" alt="Ikona obecności">
+                        <br>OBECNOŚCI
+                    </button>
+                </a>
+            </div>
+            <div class="columns">
+                <a href="{{ route('timetable') }}">
+                    <button class="column">
+                        <img src="{{ asset('assets/calendar2-week.svg') }}" alt="Ikona plan zajęć">
+                        <br>PLAN ZAJĘĆ
+                    </button>
+                </a>
                 <a href="{{ route('messages') }}">
                     <button class="column">
                         <img src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora">

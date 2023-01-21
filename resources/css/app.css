@@ -20,16 +20,18 @@
 }
 /*=========================Mimi menu=========================*/
 .Mini_menu{
-    height: 30px;
+    height: 55px;
     background-color: white;
     width: 100vw;
 }
 .menu_button
 {
-     width: 150px;
-    height: 30px;
+    width: 150px;
+    height: 55px;
     background: none;
     border: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu_button:hover{
@@ -46,7 +48,7 @@
     background-position: center;
     min-height: 80vh;
     padding-bottom: 40px;
-    padding-top: 30px
+    padding-top: 30px;
 }
 .columns {
     display: flex;
@@ -103,6 +105,7 @@
     border-radius: 5px;
     margin: 0 10vw 20px 20px;
     min-height: 50px;
+    min-width: 500px;
     font-family: 'Inter',serif;
     font-style: normal;
     font-weight: 500;

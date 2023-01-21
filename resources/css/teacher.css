@@ -116,3 +116,22 @@ table .table3 {
 .resized-image {
     width: 50%!important;
 }
+.input{
+    width: 20vw;
+
+}
+.title{
+    width: 20vw;
+    justify-content: start;
+}
+.descriptionr
+{
+    color: #1a202c;
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 30vw;
+    margin-top: 10px;
+
+}

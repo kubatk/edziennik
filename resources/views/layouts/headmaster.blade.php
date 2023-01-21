@@ -33,13 +33,14 @@
         </form>
     </nav>
     <div class="Mini_menu" >
-        <a href="{{ route('manage_classes') }}"><button  class="menu_button" title="Klasy"> <img height="20px" src="{{ asset('assets/gear-wide-connected.svg') }}" alt="Ikona zarządzania klasami"></button></a>
-        <a href="{{ route('manage_users') }}"><button class="menu_button" title="Użytkownicy" ><img  height="20px" src="{{ asset('assets/person-gear.svg') }}" alt="Ikona zarządzania użytkownikami"></button></a>
-        <a href="{{ route('messages') }}"><button class="menu_button" title="Komunikator"><img height="20px" src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora"></button></a>
-        <a href="{{ route('news') }}"><button class="menu_button" title="Ogłoszenia"><img height="20px" src="{{ asset('assets/chat-right-text.svg') }}" alt="Ikona ogłoszeń"></button></a>
-        <a href="{{ route('add_lesson') }}"><button class="menu_button" title="Dodaj zajęcia"><img height="20px" src="{{ asset('assets/window-plus.svg') }}" alt="Ikona dodania zajęć"></button></a>
-        <a href="{{ route('add_user') }}" ><button class="menu_button" title="Dodaj Użytkownika"><img height="20px" src="{{ asset('assets/person-fill-add.svg') }}" alt="Ikona dodania użytkownika"></button></a>
-        <a href="{{ route('add_class') }}"><button  class="menu_button" title="Dodaj Klasę"><img height="20px" src="{{ asset('assets/ui-checks-grid.svg') }}" alt="Ikona dodania klasy"></button></a>
+        <a href="{{ route('home') }}"><button  class="menu_button" title="Główna Strona"> <img height="20px" src="{{ asset('assets/house.svg') }}" alt="Ikona główniej strony"> <p>GŁÓWNA STRONA</p></button></a>
+        <a href="{{ route('manage_classes') }}"><button  class="menu_button" title="Klasy"> <img height="20px" src="{{ asset('assets/gear-wide-connected.svg') }}" alt="Ikona zarządzania klasami"> <p>KLASY</p></button></a>
+        <a href="{{ route('manage_users') }}"><button class="menu_button" title="Użytkownicy" ><img  height="20px" src="{{ asset('assets/person-gear.svg') }}" alt="Ikona zarządzania użytkownikami"><p>UŻYTKOWNICY</p></button></a>
+        <a href="{{ route('messages') }}"><button class="menu_button" title="Komunikator"><img height="20px" src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora"><p>KOMUNIKATOR</p></button></a>
+        <a href="{{ route('news') }}"><button class="menu_button" title="Ogłoszenia"><img height="20px" src="{{ asset('assets/chat-right-text.svg') }}" alt="Ikona ogłoszeń"><p>OGŁOSZENIA</p></button></a>
+        <a href="{{ route('add_lesson') }}"><button class="menu_button" title="Dodaj zajęcia"><img height="20px" src="{{ asset('assets/window-plus.svg') }}" alt="Ikona dodania zajęć"><p>DODAJ ZAJĘCIA</p></button></a>
+        <a href="{{ route('add_user') }}" ><button class="menu_button" title="Dodaj Użytkownika"><img height="20px" src="{{ asset('assets/person-fill-add.svg') }}" alt="Ikona dodania użytkownika"><p>DODAJ OSOBĘ</p></button></a>
+        <a href="{{ route('add_class') }}"><button  class="menu_button" title="Dodaj Klasę"><img height="20px" src="{{ asset('assets/ui-checks-grid.svg') }}" alt="Ikona dodania klasy"><p>DODAJ KLASĘ</p></button></a>
     </div>
     @yield('content')
 

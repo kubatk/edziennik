@@ -26,11 +26,11 @@
             <div class="columns">
                 <a href="{{ route('teacher_attendance') }}">
                     <button class="column">
-                        <img src="{{ asset('assets/clipboard2-check.svg') }}" alt="Ikona obetności">
+                        <img src="{{ asset('assets/clipboard2-check.svg') }}" alt="Ikona obecności">
                         <br>OBECNOŚĆ
                     </button>
                 </a>
-                <a href="">
+                <a href="{{ route('teacher_tests') }}">
                     <button class="column">
                         <img src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona dodania sprawdzianu">
                         <br>DODAJ SPRAWDZIAN
