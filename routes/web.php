@@ -67,5 +67,10 @@ Route::get('/tests', function (){return view('teacher.tests');})->name('teacher_
 Route::post('addTest', [App\Http\Controllers\TeacherController::class, 'addTest']);
 
 // Student
+Route::get('/my/marks', function (){return view('student.marks');} )->name('student_marks');
+Route::get('/my/tests', function (){return view('student.tests');})->name('student_tests');
+
+Route::get('/my/attendance', [\App\Http\Controllers\StudentController::class, 'show_attendance'])->name('student_attendance');
+Route::get('/my/attendance/{day}', [\App\Http\Controllers\StudentController::class, 'show_attendance'])->name('student_attendance_with_day');
 
 // Parent
