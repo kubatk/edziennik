@@ -50,11 +50,11 @@
                 <?php $i=1; ?>
                 @foreach($students as $student)
                     <tr>
-                        <td  >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
+                        <td  style="padding: 5px; color: white; background-color: #E38F10"  >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
                         @foreach($categories as $category)
                             <td>
                                 <input
-                                    style="width: 50px; text-align: center; margin: 2px;"
+                                    style=" width: 50px; text-align: center; margin: 2px;"
                                     <?php $mark = DB::table('grade')->join('marks', 'grade.mark', '=', 'marks.id')->where('student', $student->id)->where('category', $category->id)->first(); ?>
                                     value="@if($mark){{$mark->sign}}@endif"
                                     data-cat="{{$category->id}}" data-student="{{$student->id}}"

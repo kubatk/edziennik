@@ -34,10 +34,12 @@
 </nav>
 
 <div class="Mini_menu" >
-    <a href=""><button  class="menu_button" title="Oceny"> <img height="20px" src="{{ asset('assets/trophy.svg') }}" alt="Ikona ocen"></button></a>
-    <a href=""><button class="menu_button" title="Sprawdziany" ><img  height="20px" src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona sprawdzianu"></button></a>
-    <a href=""><button class="menu_button" title="Plan Zajęć" ><img  height="20px" src="{{ asset('assets/calendar2-week.svg') }}" alt="Ikona planu zajęć"></button></a>
-    <a href="{{ route('messages') }}"><button class="menu_button" title="Komunikator"><img height="20px" src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora"></button></a>
+    <a href="{{ route('home') }}"><button  class="menu_button" title="Główna Strona"> <img height="20px" src="{{ asset('assets/house.svg') }}" alt="Ikona główniej strony"> <p>GŁÓWNA STRONA</p></button></a>
+    <a href="{{ route('student_marks') }}"><button  class="menu_button" title="Oceny"> <img height="20px" src="{{ asset('assets/trophy.svg') }}" alt="Ikona ocen"><p>OCENY</p></button></a>
+    <a href="{{ route('student_tests') }}"><button class="menu_button" title="Sprawdziany" ><img  height="20px" src="{{ asset('assets/journal-bookmark-fill.svg') }}" alt="Ikona sprawdzianu"><p>SPRAWDZIANY</p></button></a>
+    <a href="{{ route('student_attendance') }}"><button class="menu_button" title="Obecności" ><img  height="20px" src="{{ asset('assets/clipboard2-check.svg') }}" alt="Ikona obecności"><p>OBECNOŚCI</p></button></a>
+    <a href="{{ route('timetable') }}"><button class="menu_button" title="Plan Zajęć" ><img  height="20px" src="{{ asset('assets/calendar2-week.svg') }}" alt="Ikona planu zajęć"><p>PLAN ZAJĘĆ</p></button></a>
+    <a href="{{ route('messages') }}"><button class="menu_button" title="Komunikator"><img height="20px" src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora"><p>KOMUNIKATOR</p></button></a>
 
 </div>
 @yield('content')
