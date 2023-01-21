@@ -65,6 +65,10 @@ class HomeController extends Controller
         return view('messages')->with('usergroup', \auth()->user()->group);
     }
 
+    public function sent_messages(){
+        return view('sent_messages')->with('usergroup', \auth()->user()->group);
+    }
+
     public function read_message($id){
         $message = DB::table('messages')
             ->select('messages.*', 'user_data.first_name', 'user_data.last_name', 'receivers.read', 'receivers.id as receive_id')
@@ -77,6 +81,19 @@ class HomeController extends Controller
             if(!$message[0]->read)
                 DB::table('receivers')->where('id', $message[0]->receive_id)->update(['read'=>1]);
             return view('messages')->with('usergroup', \auth()->user()->group)->with('read_message', $message[0]);
+        }
+        else
+            return redirect()->route('home');
+    }
+
+    public function read_sent_message($id){
+        $message = DB::table('messages')
+            ->select('messages.*')
+            ->where('messages.sender', \auth()->user()->user)
+            ->where('messages.id', $id)
+            ->get();
+        if(count($message)==1){
+            return view('sent_messages')->with('usergroup', \auth()->user()->group)->with('read_message', $message[0]);
         }
         else
             return redirect()->route('home');

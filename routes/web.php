@@ -27,6 +27,8 @@ Route::get('/timetable', [App\Http\Controllers\HomeController::class, 'timetable
 
 Route::get('/messages', [App\Http\Controllers\HomeController::class, 'messages'])->name('messages');
 Route::get('/messages/read/{id}', [App\Http\Controllers\HomeController::class, 'read_message'])->name('read_message');
+Route::get('/messages/outbox', [App\Http\Controllers\HomeController::class, 'sent_messages'])->name('sent_messages');
+Route::get('/messages/outbox/{id}', [App\Http\Controllers\HomeController::class, 'read_sent_message'])->name('read_sent_message');
 Route::get('/new-message', [App\Http\Controllers\HomeController::class, 'new_message'])->name('new_message');
 Route::post('addNewMessage', [App\Http\Controllers\HomeController::class, 'addNewMessage'])->name('addNewMessage');
 
