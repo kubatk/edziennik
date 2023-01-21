@@ -69,7 +69,7 @@
                                 </th>
                             @endforeach
                         </tr>
-                        <?php $students = DB::table('user_data')->where('group', 'S')->where('class', $class_id)->get(); $i=1;?>
+                        <?php $students = DB::table('user_data')->where('group', 'S')->where('class', $class_id)->orderBy('last_name')->get(); $i=1;?>
                         @foreach($students as $student)
                             <tr class="table3">
                                 <td class="table3" style="padding: 5px; color: white; background-color: #E38F10" >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>

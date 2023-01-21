@@ -31,7 +31,7 @@
 
             <button class="button2" onclick="show_cat_form()">Dodaj kategorię ocen</button>
             <?php
-            $students = DB::table('user_data')->where('group', 'S')->where('class', $current_lesson->classid)->get();
+            $students = DB::table('user_data')->where('group', 'S')->where('class', $current_lesson->classid)->orderBy('last_name')->get();
             $categories = DB::table('categories')->where('lesson', $current_lesson->id)->get();
             $valid_marks = DB::table('marks')->get();
             ?>
