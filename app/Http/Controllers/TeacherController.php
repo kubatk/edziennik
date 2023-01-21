@@ -21,14 +21,14 @@ class TeacherController extends Controller
 
     public function show_marks($lesson = 0){
         if($lesson==0){
-            $valid = DB::table('lessons')->where('lecturer', \auth()->user()->id)->count();
+            $valid = DB::table('lessons')->where('lecturer', \auth()->user()->user)->count();
             if($valid>0){
-                $lesson = DB::table('lessons')->where('lecturer', \auth()->user()->id)->first();
+                $lesson = DB::table('lessons')->where('lecturer', \auth()->user()->user)->first();
                 return view('teacher.marks')->with('lesson_id', $lesson->id);
             }
         }
         else{
-            $valid = DB::table('lessons')->where('lecturer', \auth()->user()->id)->where('id', $lesson)->count();
+            $valid = DB::table('lessons')->where('lecturer', \auth()->user()->user)->where('id', $lesson)->count();
             if($valid==1)
                 return view('teacher.marks')->with('lesson_id', $lesson);
         }
@@ -88,7 +88,7 @@ class TeacherController extends Controller
 
         if($class==0){
             $lesson = DB::table('lessons')
-                ->where('lessons.lecturer', \auth()->user()->id)
+                ->where('lessons.lecturer', \auth()->user()->user)
                 ->first();
             if($lesson)
                 return view('teacher.attendance')->with(['class_id'=>$lesson->class, 'day'=>$day]);
@@ -96,7 +96,7 @@ class TeacherController extends Controller
         else{
             $valid = DB::table('lessons')
                 ->join('classes', 'lessons.class', '=', 'classes.id')
-                ->where('lessons.lecturer', \auth()->user()->id)
+                ->where('lessons.lecturer', \auth()->user()->user)
                 ->where('lessons.class', $class)
                 ->count();
             if($valid)

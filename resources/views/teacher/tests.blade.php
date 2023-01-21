@@ -10,7 +10,7 @@
                 ->select('tests.date', 'tests.description', 'lessons.name as lesson', 'classes.name as class')
                 ->join('lessons', 'tests.lesson', '=', 'lessons.id')
                 ->join('classes', 'lessons.class', '=', 'classes.id')
-                ->where('lessons.lecturer', auth()->user()->id)
+                ->where('lessons.lecturer', auth()->user()->user)
                 ->where('tests.date', '>=', DB::raw('CAST( NOW() AS Date )'))
                 ->orderBy('tests.date')
                 ->get();
@@ -36,7 +36,6 @@
                                     <img class="table3 icon" src="{{ asset('assets/trash3.svg') }}"  type="button" alt="usuń" title="USUŃ WPIS">
                                 </td>
 
-
                             </tr>
                         @endforeach
                     </table>
@@ -46,7 +45,7 @@
                     <form method="post" action="{{url('addTest')}}">
                         @csrf
                         <?php
-                        $lessons = DB::table('lessons')->select('lessons.*', 'classes.name as class_name')->join('classes', 'lessons.class', '=', 'classes.id')->where('lessons.lecturer', auth()->user()->id)->get();
+                        $lessons = DB::table('lessons')->select('lessons.*', 'classes.name as class_name')->join('classes', 'lessons.class', '=', 'classes.id')->where('lessons.lecturer', auth()->user()->user)->get();
                         ?>
                         <div class="descriptionr">
                             <div class="title">Lekcja:</div>
@@ -64,7 +63,6 @@
                             <div class="title"> Opis:</div>
                             <input class="input" name="desc" type="text"><br>
                         </div>
-
                         <input class="button2" type="submit" value="Dodaj">
                     </form>
                 </div>

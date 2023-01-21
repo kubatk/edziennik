@@ -31,7 +31,7 @@ switch($usergroup){
                             ->select('messages.*', 'user_data.first_name', 'user_data.last_name', 'receivers.read')
                             ->join('receivers', 'messages.id', '=', 'receivers.message')
                             ->join('user_data', 'messages.sender', '=', 'user_data.id')
-                            ->where('receivers.user', auth()->user()->id)
+                            ->where('receivers.user', auth()->user()->user)
                             ->orderBy('created_at', 'DESC')
                             ->get()
                         ?>

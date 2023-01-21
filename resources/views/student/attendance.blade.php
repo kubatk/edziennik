@@ -13,7 +13,7 @@
                     <img src="{{ asset('assets/chevron-right.svg') }}" title="następny dzień" alt="Ikona dalej" type="button" onclick="next_week()" class="svg-button">
                 </form>
             </h4>
-
+            
             <?php $hours = ['7:10', '8:00', '8:50', '9:45', '10:45', '11:45', '12:40', '13:35', '14:30']; ?>
             <style>th, td{border: 1px solid black}</style>
             <table class="organizaton" >
@@ -37,7 +37,7 @@
                                     ->join('presence_status', 'presence.status', '=', 'presence_status.id')
                                     ->join('timetable', 'presence.timetable', '=', 'timetable.id')
                                     ->join('lessons', 'timetable.lesson', '=', 'lessons.id')
-                                    ->where('presence.student', '=', auth()->user()->id)
+                                    ->where('presence.student', '=', auth()->user()->user)
                                     ->where('timetable.day', $i)
                                     ->where('presence.date', date('Y-m-d', strtotime($day)+60*60*24*$i))
                                     ->where('timetable.start', $hour)

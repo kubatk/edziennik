@@ -62,19 +62,26 @@ class User extends Authenticatable
 
     public function getAddressAttribute()
     {
-        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('address');
-        return $last_name;
+        $address = DB::table('user_data')->where('id', \auth()->user()->user)->value('address');
+        return $address;
     }
 
     public function getClassAttribute()
     {
-        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('class');
-        return $last_name;
+        $class = DB::table('user_data')->where('id', \auth()->user()->user)->value('class');
+        return $class;
     }
 
     public function getGroupAttribute()
     {
-        $last_name = DB::table('user_data')->where('id', \auth()->user()->user)->value('group');
-        return $last_name;
+        $group = DB::table('user_data')->where('id', \auth()->user()->user)->value('group');
+        return $group;
     }
+
+    public function getChildrenAttribute()
+    {
+        $children = DB::table('user_data')->where('id', \auth()->user()->user)->value('children');
+        return $children;
+    }
+
 }
