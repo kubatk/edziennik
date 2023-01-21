@@ -83,4 +83,5 @@ class User extends Authenticatable
         $children = DB::table('user_data')->where('id', \auth()->user()->user)->value('children');
         return $children;
     }
+
 }

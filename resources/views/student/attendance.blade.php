@@ -32,7 +32,7 @@
                         ->join('presence_status', 'presence.status', '=', 'presence_status.id')
                         ->join('timetable', 'presence.timetable', '=', 'timetable.id')
                         ->join('lessons', 'timetable.lesson', '=', 'lessons.id')
-                        ->where('presence.student', '=', auth()->user()->id)
+                        ->where('presence.student', '=', auth()->user()->user)
                         ->where('timetable.day', $i)
                         ->where('presence.date', date('Y-m-d', strtotime($day)+60*60*24*$i))
                         ->where('timetable.start', $hour)

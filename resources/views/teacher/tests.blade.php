@@ -7,7 +7,7 @@
         ->select('tests.date', 'tests.description', 'lessons.name as lesson', 'classes.name as class')
         ->join('lessons', 'tests.lesson', '=', 'lessons.id')
         ->join('classes', 'lessons.class', '=', 'classes.id')
-        ->where('lessons.lecturer', auth()->user()->id)
+        ->where('lessons.lecturer', auth()->user()->user)
         ->where('tests.date', '>=', DB::raw('CAST( NOW() AS Date )'))
         ->orderBy('tests.date')
         ->get();
@@ -38,7 +38,7 @@
 <form method="post" action="{{url('addTest')}}">
     @csrf
     <?php
-        $lessons = DB::table('lessons')->select('lessons.*', 'classes.name as class_name')->join('classes', 'lessons.class', '=', 'classes.id')->where('lessons.lecturer', auth()->user()->id)->get();
+        $lessons = DB::table('lessons')->select('lessons.*', 'classes.name as class_name')->join('classes', 'lessons.class', '=', 'classes.id')->where('lessons.lecturer', auth()->user()->user)->get();
     ?>
     Lekcja: <select name="lesson">
         @foreach($lessons as $l)

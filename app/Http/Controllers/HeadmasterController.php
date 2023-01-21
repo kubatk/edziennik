@@ -148,7 +148,7 @@ class HeadmasterController extends Controller
 
     public function addNews(Request $request){
         $data = [
-            'added_by'=>\auth()->user()->id,
+            'added_by'=>\auth()->user()->user,
             'content'=>$request->input('content'),
             'created_at'=>Carbon::now(),
         ];

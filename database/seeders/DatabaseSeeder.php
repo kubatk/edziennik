@@ -23,11 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $users=[
-            'first_name' => ['Marian', 'Katarzyna', 'Tomasz', 'Elżbieta'],
-            'last_name' => ['Kopytko', 'Górka', 'Walec', 'Walec'],
-            'address' => ['Podkarpacka 13', 'Kopernika 29', 'Słoneczna 14/8', 'Słoneczna 14/8'],
+            'first_name' => ['Marian', 'Katarzyna', 'Tomasz', 'Opiekun ucznia'],
+            'last_name' => ['Rejewski', 'Nosowska', 'Karolak', 'Tomasz Karolak'],
+            'address' => ['Podkarpacka 13', 'Kopernika 29', 'Słoneczna 14/8', null],
             'class' => [NULL, NULL, 1, NULL],
             'group' => ['H', 'T', 'S', 'P'],
+            'children'=>[null, null, null, 3],
             'account_code' => ['vcq6C4', 'G2vcre', 'Cdwo3j', 'Pclp7d'],
             'email' => ['marian@szkola.pl','kasia@szkola.pl','tomek@szkola.pl','ela@szkola.pl'],
             'password' => Hash::make('demo'),
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
                 'address' => $users['address'][$i],
                 'class' => $users['class'][$i],
                 'group' => $users['group'][$i],
+                'children' => $users['children'][$i],
                 'account_code' => $users['account_code'][$i],
             ]);
 
@@ -91,7 +93,7 @@ class DatabaseSeeder extends Seeder
                 'presence'=>$presence['presence'][$i],
             ]);
         }
-        
+
 
     }
 }

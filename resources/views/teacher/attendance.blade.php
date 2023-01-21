@@ -3,7 +3,7 @@
     $classes = DB::table('classes')
         ->select('classes.id', 'classes.name')
         ->join('lessons', 'lessons.class', '=', 'classes.id')
-        ->where('lessons.lecturer', \auth()->user()->id)
+        ->where('lessons.lecturer', \auth()->user()->user)
         ->groupBy('classes.id', 'classes.name')
         ->get();
     $statuses = DB::table('presence_status')->get();
@@ -39,7 +39,7 @@
                 ->join('timetable', 'timetable.id', '=', 'presence.timetable')
                 ->join('lessons', 'timetable.lesson', '=', 'lessons.id')
                 ->join('classes', 'lessons.class', '=', 'classes.id')
-                ->where('lecturer', auth()->user()->id)
+                ->where('lecturer', auth()->user()->user)
                 ->where('date', $day)
                 ->where('classes.id', $class_id)
                 ->get();
@@ -89,7 +89,7 @@
                                             ?>
                                         <select data-lesson="{{$column->id}}" data-student="{{$student->id}}" onchange="change_entry(this)"
                                                 data-operation=@if($student_attendance) 'update' @else 'insert' @endif
-                                        @if($column->lecturer != auth()->user()->id) disabled @endif
+                                        @if($column->lecturer != auth()->user()->user) disabled @endif
                                         class="rm-arrow" data-column="{{$col_number}}"
                                         >
                                         @foreach($statuses as $status)
@@ -112,7 +112,7 @@
                             <?php $col_number = 1 ?>
                             @foreach($all_lessons as $column)
                                 <td class="table3">
-                                    @if($column->lecturer == auth()->user()->id)
+                                    @if($column->lecturer == auth()->user()->user)
                                         @if($col_number>1)
                                             <button class="image-button" title="Kopiuj wpisy frekwencji z poprzednich zajęć" onclick="copy_from_previous({{$col_number}})">
                                             <img class="resized-image"  src="{{ asset('assets/copy-icon.svg') }}" alt="image">

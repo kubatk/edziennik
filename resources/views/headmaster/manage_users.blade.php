@@ -2,9 +2,9 @@
 
 @section('content')
 <?php
-    $teachers = DB::table('user_data')->where('group', 'T')->get();
+    $teachers = DB::table('user_data')->where('group', 'T')->orderBy('user_data.last_name')->get();
 //    $students = DB::table('user_data')->where('group', 'S')->get();
-    $students = DB::table('user_data')->select('user_data.*', 'classes.name')->join('classes', 'classes.id', '=', 'user_data.class')->where('group', 'S')->get();
+    $students = DB::table('user_data')->select('user_data.*', 'classes.name')->join('classes', 'classes.id', '=', 'user_data.class')->where('group', 'S')->orderBy('classes.name')->orderBy('user_data.last_name')->get();
 ?>
 <div class="contener">
     <div class="name"> Panel zarządzania nauczycielami i uczniami </div>

@@ -12,7 +12,7 @@
                 $lessons = DB::table('lessons')
                     ->select('lessons.*', 'classes.name as classname', 'classes.id as classid')
                     ->join('classes', 'lessons.class', '=', 'classes.id')
-                    ->where('lecturer', auth()->user()->id)
+                    ->where('lecturer', auth()->user()->user)
                     ->get(); ?>
                 <div class="choose_class">
                     Klasa:

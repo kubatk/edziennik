@@ -10,7 +10,7 @@
                 ->select('timetable.*', 'lessons.name as lesson_name', 'classes.name as class_name')
                 ->join('lessons', 'timetable.lesson', '=', 'lessons.id')
                 ->join('classes', 'classes.id', '=', 'lessons.class')
-                ->where('lessons.lecturer', auth()->user()->id)
+                ->where('lessons.lecturer', auth()->user()->user)
                 ->get();
             ?>
 

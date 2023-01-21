@@ -70,7 +70,7 @@ class HomeController extends Controller
             ->select('messages.*', 'user_data.first_name', 'user_data.last_name', 'receivers.read', 'receivers.id as receive_id')
             ->join('receivers', 'messages.id', '=', 'receivers.message')
             ->join('user_data', 'user_data.id', '=', 'messages.sender')
-            ->where('receivers.user', \auth()->user()->id)
+            ->where('receivers.user', \auth()->user()->user)
             ->where('messages.id', $id)
             ->get();
         if(count($message)==1){
@@ -88,7 +88,7 @@ class HomeController extends Controller
                 ->select('messages.*', 'user_data.first_name', 'user_data.last_name')
                 ->join('receivers', 'receivers.message', '=', 'messages.id')
                 ->join('user_data', 'user_data.id', '=', 'messages.sender')
-                ->where('receivers.user', \auth()->user()->id)
+                ->where('receivers.user', \auth()->user()->user)
                 ->where('messages.id', $request->input('reply'))
                 ->get();
 
@@ -103,7 +103,7 @@ class HomeController extends Controller
 
     public function addNewMessage(Request $request){
         $message = [
-            'sender'=>\auth()->user()->id,
+            'sender'=>\auth()->user()->user,
             'title'=>$request->input('title'),
             'content'=>$request->input('content'),
             'created_at'=> Carbon::now(),

@@ -14,7 +14,7 @@
             $lessons = DB::table('lessons')
                 ->select('lessons.*')
                 ->join('user_data', 'user_data.class', '=', 'lessons.class')
-                ->where('user_data.id', auth()->user()->id)
+                ->where('user_data.id', auth()->user()->user)
                 ->get();
         ?>
         @foreach($lessons as $l)
@@ -27,7 +27,7 @@
                         ->join('categories', 'categories.id', '=', 'grade.category')
                         ->join('lessons', 'categories.lesson', '=', 'lessons.id')
                         ->join('user_data', 'user_data.id', '=', 'lessons.lecturer')
-                        ->where('grade.student', auth()->user()->id)
+                        ->where('grade.student', auth()->user()->user)
                         ->where('categories.lesson', $l->id)
                         ->get();
                 ?>
@@ -53,7 +53,7 @@
                                         FROM grade g
                                         JOIN marks m ON m.id = g.mark
                                         JOIN categories c ON c.id = g.category
-                                        WHERE g.student = '.auth()->user()->id.'
+                                        WHERE g.student = '.auth()->user()->user.'
                                         AND c.lesson = '.$l->id.'
                                         AND c.count_to_avg = 1')
                     )
