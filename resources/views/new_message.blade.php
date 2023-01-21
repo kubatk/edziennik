@@ -71,7 +71,7 @@ switch($usergroup){
                         <details>
                             <summary>Uczniowie</summary>
                             <div class="indent">
-                                    <?php $users = DB::table('user_data')->where('group', 'S')->where('id', '!=', auth()->user()->user)->where('class', $class->id)->get(); ?>
+                                <?php $users = DB::table('user_data')->where('group', 'S')->where('id', '!=', auth()->user()->user)->where('class', $class->id)->get(); ?>
                                 @foreach($users as $user)
                                     <label><input type="checkbox" value="{{$user->id}}" data-first-name="{{$user->first_name}}" data-last-name="{{$user->last_name}}" @if(isset($reply) && $reply->sender==$user->id) checked @endif> {{$user->first_name}} {{$user->last_name}}</label><br>
                                 @endforeach
@@ -80,6 +80,13 @@ switch($usergroup){
                         <details>
                             <summary>Rodzice</summary>
                             <div class="indent">
+                                <?php $users = DB::table('user_data')->where('group', 'S')->where('id', '!=', auth()->user()->user)->where('class', $class->id)->get(); ?>
+                                @foreach($users as $student)
+                                    <?php $user = DB::table('user_data')->where('children', $student->id)->first(); ?>
+                                    @if($user)
+                                    <label><input type="checkbox" value="{{$user->id}}" data-first-name="{{$user->first_name}}" data-last-name="{{$user->last_name}}" @if(isset($reply) && $reply->sender==$user->id) checked @endif> {{$user->first_name}} {{$user->last_name}}</label><br>
+                                    @endif
+                                @endforeach
                             </div>
                         </details>
                     </div>

@@ -8,9 +8,9 @@
             <form class="organizaton" method="post" action="{{ url('addUser') }}" >
                 @csrf
                 <div class="descriptionr">
-                    <label ><input  class="check" type="radio" name="group" value="S">Uczeń</label>
+                    <label ><input  class="check" type="radio" name="group" value="S" onchange="switch_student_teacher()">Uczeń</label>
                     <label hidden="hidden"><input class="check" type="radio" name="group" value="P">Rodzic</label>
-                    <label ><input class="check" type="radio" name="group" value="T">Nauczyciel</label>
+                    <label ><input class="check" type="radio" name="group" value="T" checked onchange="switch_student_teacher()">Nauczyciel</label>
                     <label hidden="hidden"><input class="check" type="radio" name="group" value="H">Dyrektor</label><br>
 
                 </div>
@@ -42,10 +42,10 @@
                     <?php
                     $classes = DB::table('classes')->get()
                     ?>
-                    <div class="title2">
+                    <div class="title2 form-class">
                         Klasa:
                     </div>
-                    <div class="input">
+                    <div class="input form-class">
                         <select name="class">
                             @foreach($classes as $class)
                                 <option value="{{ $class->id }}">{{ $class->name }}</option>
@@ -59,4 +59,24 @@
             </form>
         </div>
     </div>
+
+
+    <script>
+        var add_mode = 'student'
+        function switch_student_teacher(){
+            if(add_mode=='student'){
+                document.querySelectorAll('.form-class').forEach(e => {
+                    e.style.display = 'none'
+                })
+                add_mode='teacher'
+            }
+            else if(add_mode=='teacher'){
+                document.querySelectorAll('.form-class').forEach(e => {
+                    e.style.display = 'block'
+                })
+                add_mode='student'
+            }
+        }
+        switch_student_teacher()
+    </script>
 @endsection

@@ -4,7 +4,7 @@
 <?php
     $teachers = DB::table('user_data')->where('group', 'T')->get();
 //    $students = DB::table('user_data')->where('group', 'S')->get();
-    $students = DB::table('user_data')->join('classes', 'classes.id', '=', 'user_data.class')->where('group', 'S')->get();
+    $students = DB::table('user_data')->select('user_data.*', 'classes.name')->join('classes', 'classes.id', '=', 'user_data.class')->where('group', 'S')->get();
 ?>
 <div class="contener">
     <div class="name"> Panel zarządzania nauczycielami i uczniami </div>
@@ -44,6 +44,7 @@
                     <th class="table1" style="background-color: #2d3748; color: white">Adres</th>
                     <th class="table1" style="background-color: #2d3748; color: white">Klasa</th>
                     <th class="table1" style="background-color: #2d3748; color: white">Kod logowania</th>
+                    <th class="table1" style="background-color: #2d3748; color: white">Kod rodzica</th>
                     <th class="table1" style="background-color: #2d3748; color: white">Opcje</th>
                 </tr>
                 @foreach($students as $student)
@@ -53,6 +54,8 @@
                         <td class="table1">{{ $student->address }}</td>
                         <td class="table1">{{ $student->name }}</td>
                         <td class="table1">{{ $student->account_code }}</td>
+                        <?php $parent = DB::table('user_data')->where('children', $student->id)->first(); ?>
+                        <td class="table1">@if($parent){{ $parent->account_code }}@endif</td>
                         <td class="EDbutton">
                             <a class="button3" href="#">Edytuj</a>
                             <a class="button3" href="#">Usuń</a>

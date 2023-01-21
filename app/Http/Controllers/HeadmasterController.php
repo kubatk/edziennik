@@ -19,7 +19,7 @@ class HeadmasterController extends Controller
         $this->middleware('auth');
     }
 
-    public function addUser(Request $request){
+    public function addUser2(Request $request){
         function random_string($length_of_string){
             $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
             return substr(str_shuffle($str_result), 0, $length_of_string);
@@ -46,6 +46,47 @@ class HeadmasterController extends Controller
 
         DB::table('user_data')->insert($data);
 
+        return redirect()->route('manage_users');
+    }
+
+    public function addUser(Request $request){
+        function random_string($length_of_string){
+            $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            return substr(str_shuffle($str_result), 0, $length_of_string);
+        }
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
+        $address = $request->input('address');
+        $group = $request->input('group');
+
+        if($group == 'T'){
+            $data = array(
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'address'=>$address,
+                'group'=>$group,
+                'account_code'=>random_string(6),
+            );
+            DB::table('user_data')->insert($data);
+        } elseif ($group == 'S'){
+            $data = array(
+                'first_name'=>$first_name,
+                'last_name'=>$last_name,
+                'address'=>$address,
+                'group'=>$group,
+                'class'=>$request->input('class'),
+                'account_code'=>random_string(6),
+            );
+            $student_id = DB::table('user_data')->insertGetId($data);
+            $data = array(
+                'first_name'=>"Opiekun ucznia",
+                'last_name'=>$first_name." ".$last_name,
+                'group'=>'P',
+                'children'=>$student_id,
+                'account_code'=>random_string(6),
+            );
+            DB::table('user_data')->insert($data);
+        }
         return redirect()->route('manage_users');
     }
 
