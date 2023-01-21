@@ -72,11 +72,11 @@
                         <?php $students = DB::table('user_data')->where('group', 'S')->where('class', $class_id)->get(); $i=1;?>
                         @foreach($students as $student)
                             <tr class="table3">
-                                <td>{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
+                                <td class="table3" style="padding: 5px; color: white; background-color: #E38F10" >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
 
                                     <?php $col_number=1; ?>
                                 @foreach($all_lessons as $column)
-                                    <td>
+                                    <td style="padding-left: 30px">
                                             <?php
                                             $student_attendance = DB::table('presence')
                                                 ->select('presence.*', 'lessons.id as lesson_id', 'lessons.lecturer')

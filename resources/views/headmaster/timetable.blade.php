@@ -37,7 +37,7 @@
                 Brak zajęć...
             @endif
             <div style="margin: 20px">
-                <a class="button2" target="_blank" href="{{ route('add_lesson') }}">Dodaj zajęcia</a>
+                <a class="button2" href="{{ route('add_lesson') }}">Dodaj zajęcia</a>
             </div>
 
 

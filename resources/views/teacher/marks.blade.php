@@ -50,7 +50,7 @@
                 <?php $i=1; ?>
                 @foreach($students as $student)
                     <tr>
-                        <td>{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
+                        <td  >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
                         @foreach($categories as $category)
                             <td>
                                 <input

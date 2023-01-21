@@ -13,13 +13,28 @@
     font-size: 40px;
     line-height: 55px;
     color: #2c3e50;
-
-
 }
-
 .navbarH:hover
 {
     cursor: pointer;
+}
+/*=========================Mimi menu=========================*/
+.Mini_menu{
+    height: 30px;
+    background-color: white;
+    width: 100vw;
+}
+.menu_button
+{
+     width: 150px;
+    height: 30px;
+    background: none;
+    border: none;
+}
+
+.menu_button:hover{
+    background-color: #1B2647;
+    color: white;
 }
 /*=========================Main=========================*/
 
@@ -29,8 +44,9 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    min-height: 90vh;
+    min-height: 80vh;
     padding-bottom: 40px;
+    padding-top: 30px
 }
 .columns {
     display: flex;
@@ -85,7 +101,7 @@
 .single_new{
     background: #D9D9D9;
     border-radius: 5px;
-    margin: 20px;
+    margin: 0 10vw 20px 20px;
     min-height: 50px;
     font-family: 'Inter',serif;
     font-style: normal;
@@ -111,7 +127,22 @@
     padding-bottom: 20px;
     margin: 30px;
 }
-
+.descryption_news
+{
+    font-family: 'Inter',serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 30px;
+    color: darkred;
+    padding-left: 20px;
+    text-align: left;
+}
+.news_page
+{
+    max-height: 400px;
+    overflow-y: scroll;
+}
 /*========================================================*/
 
 .form-popup {
@@ -149,3 +180,66 @@
     background-color: #4a5568;
     color: wheat;
 }
+.news_list
+{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 5vw 0 10px;
+}
+.icon{
+    margin: 10px;
+}
+
+.icon:hover
+{
+   transform: scale(1.05);
+    cursor: pointer;
+}
+
+.communicator_left{
+    background-color: #9dabb9;
+    margin: 20px;
+    padding: 30px 50px;
+    width: 50%;
+    height: 500px;
+}
+.communicator_left_insade{
+    padding: 30px 50px;
+    overflow-y: scroll;
+}
+.communicator_right{
+    margin: 20px;
+    padding: 10px 0 0 0 ;
+    width: 50%;
+    height: 500px;
+}
+.communicator_right_insade{
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px 10px;
+    height: 310px;
+    overflow-y: scroll;
+}
+.unread-message{
+    font-weight: bold;
+}
+.opened-message{
+    background-color: #aaa;
+}
+.message:hover{
+    background-color: #1B2647;
+    color: white;
+    cursor: pointer;
+}
+
+/*====================*/
+#choose-reveivers-form{
+    border: solid 1px black;
+    display: none;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+
+#choose-reveivers-form .indent{
+    margin-left: 30px;}
