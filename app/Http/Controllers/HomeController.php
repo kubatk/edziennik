@@ -53,6 +53,9 @@ class HomeController extends Controller
             case 'T':
                 return view('teacher.timetable');
                 break;
+            case 'P':
+                return view('parent.timetable');
+                break;
         }
         return view('home');
 

@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->integer('class')->nullable();
+            $table->integer('children')->nullable();
             $table->char('group');
             $table->string('account_code');
         });

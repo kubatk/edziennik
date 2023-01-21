@@ -74,3 +74,11 @@ Route::get('/my/attendance', [\App\Http\Controllers\StudentController::class, 's
 Route::get('/my/attendance/{day}', [\App\Http\Controllers\StudentController::class, 'show_attendance'])->name('student_attendance_with_day');
 
 // Parent
+Route::get('/child/marks', function (){return view('parent.marks');} )->name('parent_marks');
+
+Route::get('/child/tests', function (){return view('parent.tests');})->name('parent_tests');
+
+Route::get('/child/attendance', [\App\Http\Controllers\ParentController::class, 'show_attendance'])->name('parent_attendance');
+Route::get('/child/attendance/{day}', [\App\Http\Controllers\ParentController::class, 'show_attendance'])->name('parent_attendance_with_day');
+
+Route::post('correctAbsence', [App\Http\Controllers\ParentController::class, 'correctAbsence']);
