@@ -2,13 +2,15 @@
 
 @section('content')
 <?php $child = DB::table('user_data')->where('id', auth()->user()->children)->first(); ?>
-<h3>Oceny ucznia {{$child->first_name}} {{$child->last_name}}</h3>
-    Musiałem wysunąć tabelkę troszkę na środek, bo tooltipy do ocen uciekały za ekran :P
-    <table style="margin-left: 300px;">
-        <tr>
-            <th>Przedmiot</th>
-            <th>Oceny</th>
-            <th>Średnia</th>
+<div class="contener">
+    <div class="name"> Oceny ucznia {{$child->first_name}} {{$child->last_name}} </div>
+    <div class="line"></div>
+    <div class="window">
+    <table style="display: flex; justify-content: center">
+        <tr class="tableSP" style="background-color: #2d3748; color: white">
+            <th style="width: 10vw" >Przedmiot</th>
+            <th style="width: 60vw">Oceny</th>
+            <th style="width: 5vw; background-color: #1B2647">Średnia</th>
         </tr>
         <?php
             $lessons = DB::table('lessons')
@@ -19,7 +21,7 @@
         ?>
         @foreach($lessons as $l)
             <tr>
-                <td>{{ucfirst($l->name)}}</td>
+                <td style="text-align: center">{{ucfirst($l->name)}}</td>
                 <?php
                     $marks = DB::table('grade')
                         ->select('categories.name', 'categories.count_to_avg', 'marks.sign', 'grade.created_at', 'user_data.first_name', 'user_data.last_name', 'categories.weight')
@@ -58,9 +60,11 @@
                                         AND c.count_to_avg = 1')
                     )
                 ?>
-                <td>{{round($avg[0]->average, 2)}}</td>
+                <td style="background-color: #2d3748; color: white; text-align: center">{{round($avg[0]->average, 2)}}</td>
             </tr>
         @endforeach
 
     </table>
+    </div>
+</div>
 @endsection

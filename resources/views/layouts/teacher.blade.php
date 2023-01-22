@@ -23,14 +23,18 @@
 </head>
 <body>
 {{--    My basic dump structure, just for test. Don't be afraid to replace it--}}
-    <a href="{{ route('home') }}"><div class="navbarH"><span style=" color: #E38F10;line-height: 1;">E</span>DZIENNIK</div></a>
-    <nav style="margin: 15px 0 0 70vw; font-size: 20px;">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            Zalogowano jako: (nauczyciel) {{ Auth::user()->first_name }} {{ Auth::user()->last_name }},
-            <a class="text-decoration-underline text-blue cursor-pointer" onclick="document.getElementById('logout-form').submit();"></a>
-            <button style="margin-bottom:20px; font-weight: 600; border: none; border-radius: 20px;background-color: #1B2647;color: white; padding: 10px 30px "> Wyloguj się </button>
-        </form>
+    <nav style="margin: 15px 0 0 0; font-size: 20px; width: 100%; display: flex; justify-content: space-between">
+        <div>
+            <a href="{{ route('home') }}"><div class="navbarH"><span style=" color: #E38F10;line-height: 1;">E</span>DZIENNIK</div></a>
+        </div>
+        <div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                Zalogowano jako: {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                <a class="text-decoration-underline text-blue cursor-pointer" onclick="document.getElementById('logout-form').submit();"></a>
+                <button class="log_button">Wyloguj się</button>
+            </form>
+        </div>
     </nav>
     <div class="Mini_menu">
         <a href="{{ route('home') }}"><button  class="menu_button" title="Główna Strona"> <img height="20px" src="{{ asset('assets/house.svg') }}" alt="Ikona główniej strony"> <p>GŁÓWNA STRONA</p></button></a>

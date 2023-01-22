@@ -13,7 +13,7 @@
 .mark-tooltip .mark-tooltiptext {
     visibility: hidden;
     width: 300px;
-    background-color: lightgray;
+    background-color: #6b7280;
     text-align: left;
     border-radius: 6px;
     padding: 5px 4px;
@@ -32,7 +32,7 @@
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent lightgray transparent;
+    border-color: transparent transparent #6b7280 transparent;
 }
 
 .mark-tooltip:hover .mark-tooltiptext {

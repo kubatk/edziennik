@@ -49,17 +49,6 @@ switch($usergroup){
         </div>
     </div>
 
-
-
-
-
-        <style>
-
-        </style>
-
-
-
-
         <div class="form-popup" id="choose-reveivers-form">
             Zaznacz adresatów
             <details>

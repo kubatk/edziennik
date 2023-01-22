@@ -6,9 +6,9 @@
         <div class="line"></div>
         <div class="window">
             <div class="news_list">
-                <div>
+                <div style="margin-top: 30px">
                     <h3>Aktualnie wyświetlane wpisy:</h3>
-                    <div class="news_page" style="background-color: #9dabb9; border-radius: 20px; padding: 30px 50px">
+                    <div class="news_page" style="background-color: #9dabb9; border-radius: 20px;">
                         <?php $news = DB::table('news')
                             ->select('news.*', 'user_data.first_name', 'user_data.last_name')
                             ->join('user_data', 'added_by', '=', 'user_data.id')
