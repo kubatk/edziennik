@@ -18,11 +18,25 @@
 {
     cursor: pointer;
 }
+.log_button
+{
+    margin:0 15px 20px 0;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    background-color: #1B2647;
+    color: white;
+    padding: 10px 30px;
+}
+.log_button:hover
+{
+    background-color: #4a5568;
+}
 /*=========================Mimi menu=========================*/
 .Mini_menu{
     height: 55px;
     background-color: white;
-    width: 100vw;
+    width: 100%;
 }
 .menu_button
 {
@@ -150,7 +164,7 @@
 
 .form-popup {
     position: fixed;
-    top: 40%;
+    top: 25%;
     left:40%;
     border: 3px black solid;
     border-radius: 10px;
@@ -227,7 +241,8 @@
     font-weight: bold;
 }
 .opened-message{
-    background-color: #aaa;
+    background-color: #2d3748;
+    color: white;
 }
 .message:hover{
     background-color: #1B2647;
@@ -246,3 +261,17 @@
 
 #choose-reveivers-form .indent{
     margin-left: 30px;}
+
+.button_parent{
+   background-color: #1B2647;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+
+}
+.button_parent:hover{
+    background-color: white;
+    color: #1B2647;
+}

@@ -14,8 +14,9 @@ switch($usergroup){
         <div class="name"> Wiadomości </div>
         <div class="line"></div>
         <div class="window">
-            <img class="icon" src="{{ asset('assets/plus-square.svg') }}" title="NOWA WIADOMOŚĆ" alt="nowa wiadomość" onclick="window.location.replace('{{route('new_message')}}')">
+            <img style="margin-left: 40px" class="icon" src="{{ asset('assets/plus-square.svg') }}" title="NOWA WIADOMOŚĆ" alt="nowa wiadomość" onclick="window.location.replace('{{route('new_message')}}')">
             <img class="icon" src="{{ asset('assets/repeat.svg') }}" title="ODŚWIEŻ" alt="odśwież wiadomość" onclick=document.location.reload(true)>
+            <img class="icon" src="{{ asset('assets/envelope-open.svg') }}" title="ODEBRANE" alt="Odebrane wiadomości" onclick="window.location.replace('{{route('messages')}}')">
             <br>
             <div style="display: flex">
                 <div class="communicator_left">

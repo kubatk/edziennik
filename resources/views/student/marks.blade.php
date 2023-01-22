@@ -5,7 +5,7 @@
         <div class="name"> Twoje Oceny </div>
         <div class="line"></div>
         <div class="window">
-            <table>
+            <table style="display: flex; justify-content: center">
                 <tr class="tableSP" style="background-color: #2d3748; color: white">
                     <th style="width: 10vw" >Przedmiot</th>
                     <th style="width: 60vw">Oceny</th>

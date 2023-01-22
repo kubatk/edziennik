@@ -4,6 +4,13 @@
     <div class="contener">
         <br>
         <div class="columns">
+            <a href="{{ route('news') }}">
+                <button class="column">
+                    <img src="{{ asset('assets/chat-right-text.svg') }}" alt="Ikona ogłoszeń">
+                    <br>DODAJ OGŁOSZENIE
+                    <i class="fa-solid fa-puzzle"></i>
+                </button>
+            </a>
             <a href="{{ route('manage_classes') }}">
                 <button class="column">
                     <img src="{{ asset('assets/gear-wide-connected.svg') }}" alt="Ikona zarządzania klasami">
@@ -14,19 +21,6 @@
                 <button class="column">
                     <img src="{{ asset('assets/person-gear.svg') }}" alt="Ikona zarządzania użytkownikami">
                     <br>PANEL ZARZĄDZANIA UŻYTKOWNIKAMI
-                </button>
-            </a>
-            <a href="{{ route('messages') }}">
-                <button class="column">
-                    <img src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora">
-                    <br>KOMUNIKATOR
-                </button>
-            </a>
-            <a href="{{ route('news') }}">
-                <button class="column">
-                    <img src="{{ asset('assets/chat-right-text.svg') }}" alt="Ikona ogłoszeń">
-                    <br>DODAJ OGŁOSZENIE
-                    <i class="fa-solid fa-puzzle"></i>
                 </button>
             </a>
         </div>
@@ -52,7 +46,14 @@
             </a>
 
         </div>
-
+        <div class="columns">
+            <a href="{{ route('messages') }}">
+                <button class="column">
+                    <img src="{{ asset('assets/envelope-at.svg') }}" alt="Ikona komunikatora">
+                    <br>KOMUNIKATOR
+                </button>
+            </a>
+        </div>
 
     </div>
 @endsection
