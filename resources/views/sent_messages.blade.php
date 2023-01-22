@@ -46,7 +46,11 @@ switch($usergroup){
                                      onclick="read_message({{$message->id}})">
                                     <td>{{$message->title}}</td>
                                     <td>{{$message->created_at}}</td>
-                                    <td>n</td>
+                                    <?php
+                                        $read = DB::table('receivers')->where('message', $message->id)->where('read', 1)->count();
+                                        $all = DB::table('receivers')->where('message', $message->id)->count();
+                                    ?>
+                                    <td>{{$read}} / {{$all}}</td>
                                 </tr>
                             @endforeach
                         </div>
