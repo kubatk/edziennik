@@ -1,12 +1,12 @@
 @extends('layouts.parent')
 
-@section('content')
-    <?php $child = DB::table('user_data')->where('id', auth()->user()->children)->first(); ?>
     <div class="contener">
-        <div class="name"> Twój plan zajęć </div>
+        <div class="name"> Plan zajęć dziecka</div>
         <div class="line"></div>
         <div class="window">
             <?php
+            @section('content')
+            <?php $child = DB::table('user_data')->where('id', auth()->user()->children)->first(); ?>
             $timetable = DB::table('timetable')
                 ->select('timetable.*', 'lessons.name as lesson_name', DB::raw('CONCAT(user_data.first_name, " ", user_data.last_name) as lecturer'))
                 ->join('lessons', 'timetable.lesson', '=', 'lessons.id')

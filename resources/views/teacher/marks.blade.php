@@ -50,7 +50,7 @@
                 <?php $i=1; ?>
                 @foreach($students as $student)
                     <tr>
-                        <td  style="padding: 5px; color: white; background-color: #E38F10"  >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
+                        <td  style="width: 15vw; padding: 5px; color: white; background-color: #E38F10"  >{{$i}}. {{$student->first_name}} {{$student->last_name}}</td>
                         @foreach($categories as $category)
                             <td>
                                 <input
@@ -76,7 +76,7 @@
                                         AND c.count_to_avg = 1')
                             )
                             ?>
-                        <td>{{round($avg[0]->average, 2)}}</td>
+                        <td style="text-align: center">{{round($avg[0]->average, 2)}}</td>
                     </tr>
                         <?php $i++; ?>
                 @endforeach

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="contener">
-        <div class="name"> DODAWANIE OGŁOSZEŃ </div>
+        <div class="name"> Dodawanie ogłoszeń </div>
         <div class="line"></div>
         <div class="window">
             <div class="news_list">
